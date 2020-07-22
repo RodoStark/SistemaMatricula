@@ -1,0 +1,52 @@
+﻿@using MiPrimeraAplicacionWeb.Models;
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                @{
+                    int nElementos = Variable.Acciones.Count();
+                    for (int i = 0; i < nElementos; i++)
+                    {
+                        Html.ActionLink(Variable.Mensaje[i], Variable.Acciones[i], Variable.Controladores[i], new { area = "" }, new { @class = "navbar-brand" });
+                    }
+                }
+
+                @*Html.ActionLink("Curso", "Index", "Curso", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Periodo", "Index", "Periodo", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Seccion", "Index", "Seccion", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Alumno", "Index", "Alumno", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Docente", "Index", "Docente", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Asignar grado y sección", "Index", "GradoSeccion", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Asignar Curso a los rados", "Index", "PeriodoGradoCurso", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Asignar curso a docente", "Index", "GradoSeccionAula", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Asignar Matrícula", "Index", "Matricula", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Asignar Rol", "Index", "RolPagina", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Usuario", "Index", "Usuario", new { area = "" }, new { @class = "navbar-brand" })*@
+                        @Html.ActionLink("Cerrar", "Cerrar", "Login", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+    @*<script src="~/Scripts/jquery-3.3.1.min.js"></script>*@
+</body>
+</html>

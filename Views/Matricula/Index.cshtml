@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Asignar Matrícula</h2>
+
+<link href="~/Content/datatables.css" rel="stylesheet" />
+<link href="~/Content/cssPropio.css" rel="stylesheet" />
+
+<label>Ingrese nombre:</label>
+<input type="text" id="txtnombre" />
+<input type="button" id="btnBuscar" value="Buscar" class="btn btn-primary" />
+<input type="button" id="btnLimpiar" value="Limpiar" class="btn btn-primary" />
+<br />
+<button type="button" onclick="abrirModal(0)" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Agregar</button>
+
+<div id="tabla"></div>
+
+<!-- Modal -->
+<div id="myModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Asignar Matrícula</h4>
+            </div>
+            <div class="modal-body">
+                <table style="width:80%;margin:auto">
+                    <tr>
+                        <td width="40%">Id</td>
+                        <td width="60%"><input class="borrar" type="text" id="txtId" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Perioodo</td>
+                        <td><select class="borrar Obligatorio" id="cboPeriodo"></select></td>
+                    </tr>
+                    <tr>
+                        <td>Grado Seccion</td>
+                        <td><select class="borrar Obligatorio" id="cboGradoSeccion"></select></td>
+                    </tr>
+                    <tr>
+                        <td><span id="spnContenido"></span>>Alumno</td>
+                        <td><select class="borrar Obligatorio" id="cboAlumno"></select></td>
+                    </tr>
+                </table>
+                
+                                        
+                <table id="tablacurso" style="width:50%;margin:auto">
+                    
+                </table>
+                <h1>HDTPM</h1>
+            </div>
+            <div class="modal-footer">
+                <button onclick="agregar()" id="btnAceptar" type="button" class="btn btn-success">Aceptar</button>
+                <button id="btnCancelar" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/Matricula.js"></script>
+<script src="~/Scripts/datatables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
